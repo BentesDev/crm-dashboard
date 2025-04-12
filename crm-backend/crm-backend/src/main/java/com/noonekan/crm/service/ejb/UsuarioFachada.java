@@ -1,4 +1,4 @@
-package com.noonekan.crm.service.facade;
+package com.noonekan.crm.service.ejb;
 
 import com.noonekan.crm.dto.UsuarioDTO;
 import com.noonekan.crm.entity.Empresa;
