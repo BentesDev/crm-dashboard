@@ -1,29 +1,18 @@
-package com.noonekan.crm.entity;
+package com.noonekan.crm.dto;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "receitas")
-public class Receita extends BaseEntity {
+public class ReceitaDTO implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private static final long serialVersionUID = 1L;
+
 	private Long id;
-
-	@Column(nullable = false)
 	private String descricao;
-
-	@Column(nullable = false)
 	private BigDecimal valor;
-
-	@Column(nullable = false)
 	private LocalDate data;
-
-	@ManyToOne
-	@JoinColumn(name = "empresa_id", nullable = false)
-	private Empresa empresa;
+	private Long empresaId;
 
 	public Long getId() {
 		return id;
@@ -57,11 +46,11 @@ public class Receita extends BaseEntity {
 		this.data = data;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
+	public Long getEmpresaId() {
+		return empresaId;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public void setEmpresaId(Long empresaId) {
+		this.empresaId = empresaId;
 	}
 }

@@ -1,31 +1,18 @@
-package com.noonekan.crm.entity;
+package com.noonekan.crm.dto;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "anexos_documentos")
-public class AnexoDocumento extends BaseEntity {
+public class AnexoDocumentoDTO implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private static final long serialVersionUID = 1L;
+
 	private Long id;
-
-	@Column(nullable = false)
 	private String nomeArquivo;
-
-	@Column(nullable = false)
 	private String tipo;
-
-	@Column(nullable = false)
 	private String caminho;
-
-	@Column(nullable = false)
 	private LocalDateTime dataUpload;
-
-	@ManyToOne
-	@JoinColumn(name = "empresa_id", nullable = false)
-	private Empresa empresa;
+	private Long empresaId;
 
 	public Long getId() {
 		return id;
@@ -67,11 +54,11 @@ public class AnexoDocumento extends BaseEntity {
 		this.dataUpload = dataUpload;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
+	public Long getEmpresaId() {
+		return empresaId;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public void setEmpresaId(Long empresaId) {
+		this.empresaId = empresaId;
 	}
 }

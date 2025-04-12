@@ -1,52 +1,30 @@
-package com.noonekan.crm.entity;
+package com.noonekan.crm.dto;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "funcionarios")
-public class Funcionario extends BaseEntity {
+public class FuncionarioDTO implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private static final long serialVersionUID = 1L;
+
 	private Long id;
-
-	@Column(nullable = false)
 	private String nome;
-
-	@Column(unique = true)
 	private String cpf;
-
 	private String email;
-
 	private String telefone;
-
 	private String endereco;
-
 	private String departamento;
-
 	private String tipoContrato;
-
 	private LocalDate dataNascimento;
-
-	@Column(nullable = false)
 	private String cargo;
-
-	@Column(nullable = false)
 	private BigDecimal salario;
-
-	@Column(nullable = false)
 	private LocalDate dataAdmissao;
-
 	private LocalDate dataDemissao;
+	private boolean ativo;
+	private Long empresaId;
 
-	private boolean ativo = true;
-
-	@ManyToOne
-	@JoinColumn(name = "empresa_id", nullable = false)
-	private Empresa empresa;
-
+	// Getters e Setters
 	public Long getId() {
 		return id;
 	}
@@ -159,11 +137,11 @@ public class Funcionario extends BaseEntity {
 		this.ativo = ativo;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
+	public Long getEmpresaId() {
+		return empresaId;
 	}
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public void setEmpresaId(Long empresaId) {
+		this.empresaId = empresaId;
 	}
 }
