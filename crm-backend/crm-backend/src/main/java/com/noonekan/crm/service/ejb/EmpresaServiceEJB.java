@@ -37,10 +37,14 @@ public class EmpresaServiceEJB implements EmpresaService {
 	public EmpresaDTO obterEmpresa(Long id) {
 		Empresa empresa = em.find(Empresa.class, id);
 
+		if (empresa != null){
 		EmpresaDTO dto = new EmpresaDTO();
 		dto.setId(empresa.getId());
 
 		return dto;
+		}
+		
+		return null;
 
 	}
 
