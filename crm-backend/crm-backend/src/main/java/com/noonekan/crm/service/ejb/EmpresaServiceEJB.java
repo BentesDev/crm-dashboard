@@ -40,6 +40,18 @@ public class EmpresaServiceEJB implements EmpresaService {
 		if (empresa != null){
 		EmpresaDTO dto = new EmpresaDTO();
 		dto.setId(empresa.getId());
+		dto.setNomeFantasia(empresa.getNomeFantasia());
+		dto.setRazaoSocial(empresa.getRazaoSocial());
+		dto.setCnpj(empresa.getCnpj());
+		dto.setDataCadastro(empresa.getDataCadastro());
+		dto.setEndereco(empresa.getEndereco());
+		dto.setNumero(empresa.getNumero());
+		dto.setComplemento(empresa.getComplemento());
+		dto.setBairro(empresa.getBairro());
+		dto.setCidade(empresa.getCidade());
+		dto.setEstado(empresa.getEstado());
+		dto.setCep(empresa.getCep());
+		
 
 		return dto;
 		}
