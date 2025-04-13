@@ -2,11 +2,12 @@ package com.noonekan.crm.service.ejb;
 
 import com.noonekan.crm.dto.EmpresaDTO;
 import com.noonekan.crm.entity.Empresa;
+import com.noonekan.crm.entity.Usuario;
 import com.noonekan.crm.service.EmpresaService;
+
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
 
 @Stateless
 public class EmpresaServiceEJB implements EmpresaService {
@@ -87,11 +88,10 @@ public class EmpresaServiceEJB implements EmpresaService {
 	}
 
 	public boolean usuarioPossuiEmpresa(Long usuarioId) {
-		TypedQuery<Long> query = em
-				.createQuery("SELECT COUNT(e) FROM Empresa e JOIN e.usuarios u WHERE u.id = :usuarioId", Long.class);
-		query.setParameter("usuarioId", usuarioId);
-		return query.getSingleResult() > 0;
+	    Usuario usuario = em.find(Usuario.class, usuarioId);
+	    return usuario != null && usuario.getEmpresa() != null;
 	}
+
 
 
 

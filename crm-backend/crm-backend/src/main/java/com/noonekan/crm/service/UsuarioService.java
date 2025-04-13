@@ -8,7 +8,7 @@ public interface UsuarioService {
 	
 	public UsuarioDTO obterUsuario(Long id) throws Exception;
 	
-	public void removerUsuario(UsuarioDTO dto) throws Exception;
+	public void removerUsuario(Long id) throws Exception;
 	
 	public void atualizarUsuario(UsuarioDTO dto) throws Exception;
 	
