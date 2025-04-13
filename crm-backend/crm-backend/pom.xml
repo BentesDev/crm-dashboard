@@ -36,12 +36,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate.orm</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>6.4.4.Final</version>
-		</dependency>
-
 		<!-- H2 Database (uso em testes locais) -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -50,7 +44,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Logger (opcional, mas útil) -->
+		<!-- Logger -->
 		<dependency>
 			<groupId>org.jboss.logging</groupId>
 			<artifactId>jboss-logging</artifactId>
@@ -65,16 +59,10 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.jboss.logging</groupId>
-			<artifactId>jboss-logging</artifactId>
-			<version>3.5.3.Final</version>
-		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- Plugin para compilar com Java 17 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
