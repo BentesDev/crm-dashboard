@@ -53,7 +53,22 @@ public class FuncionarioServiceEJB implements FuncionarioService {
         Funcionario funcionario = em.find(Funcionario.class, dto.getId());
         if (funcionario != null) {
             funcionario.setNome(dto.getNome());
-            // ... To-do (atualizar outros campos)
+            funcionario.setCpf(dto.getCpf());
+            funcionario.setEmail(dto.getEmail());
+            funcionario.setTelefone(dto.getTelefone());
+            funcionario.setEndereco(dto.getEndereco());
+            funcionario.setDepartamento(dto.getDepartamento());
+            funcionario.setTipoContrato(dto.getTipoContrato());
+            funcionario.setDataNascimento(dto.getDataNascimento());
+            funcionario.setCargo(dto.getCargo());
+            funcionario.setSalario(dto.getSalario());
+            funcionario.setDataAdmissao(dto.getDataAdmissao());
+            funcionario.setDataDemissao(dto.getDataDemissao());
+            funcionario.setAtivo(dto.isAtivo());
+            
+            Empresa empresa = em.find(Empresa.class, dto.getEmpresaId());
+            funcionario.setEmpresa(empresa);
+            
             em.merge(funcionario);
         }
     }
@@ -94,7 +109,18 @@ public class FuncionarioServiceEJB implements FuncionarioService {
         dto.setId(funcionario.getId());
         dto.setNome(funcionario.getNome());
         dto.setCpf(funcionario.getCpf());
-        // ... to-do(mapear todos os campos)
+        dto.setEmail(funcionario.getEmail());
+        dto.setTelefone(funcionario.getTelefone());
+        dto.setEndereco(funcionario.getEndereco());
+        dto.setDepartamento(funcionario.getDepartamento());
+        dto.setTipoContrato(funcionario.getTipoContrato());
+        dto.setDataNascimento(funcionario.getDataNascimento());
+        dto.setCargo(funcionario.getCargo());
+        dto.setSalario(funcionario.getSalario());
+        dto.setDataAdmissao(funcionario.getDataAdmissao());
+        dto.setDataDemissao(funcionario.getDataDemissao());
+        dto.setAtivo(funcionario.isAtivo());
+    
         dto.setEmpresaId(funcionario.getEmpresa().getId());
         return dto;
     }
