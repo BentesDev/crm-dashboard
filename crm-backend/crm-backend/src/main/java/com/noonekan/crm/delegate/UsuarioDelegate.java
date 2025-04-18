@@ -1,10 +1,12 @@
 package com.noonekan.crm.delegate;
 
-import javax.inject.Inject;
-
 import com.noonekan.crm.dto.UsuarioDTO;
 import com.noonekan.crm.service.UsuarioService;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
 public class UsuarioDelegate {
 	
 	@Inject
